@@ -70,7 +70,7 @@
     function handlePointerDown(event) {
       if (gameEnded) return;
       
-      if (circleCount >= 30) return;
+      if (circleCount >= 40) return;
       
       const centerX = window.innerWidth / 2;
       const centerY = window.innerHeight / 2;
@@ -82,7 +82,7 @@
       const modulation = Math.abs(Math.cos(angle));
       
       const minRadius = 20;
-      const maxRadius = 50;
+      const maxRadius = 70;
       let radius = distance * modulation;
       radius = Math.max(radius, minRadius);
       radius = Math.min(radius, maxRadius);
@@ -101,7 +101,7 @@
       
       container.appendChild(circle);
       circleCount++;
-      if (circleCount === 30) {
+      if (circleCount === 40) {
         setTimeout(endGame, 3000);
       }
     }
@@ -110,7 +110,7 @@
       gameEnded = true;
       const shineCount = container.querySelectorAll('.circle.shine').length;
       let messageText = "";
-      if (shineCount >= 15) {
+      if (shineCount >= 20) {
         messageText = "당신은 행복한 사람을 창조했습니다.";
       } else {
         messageText = "당신은 경험 많은 사람을 창조했습니다.";
